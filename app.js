@@ -1,37 +1,43 @@
-console.log('hi')
 
-const input = document.querySelector('#input')
-console.log(input)
 
-let keyword = null
-
-const names = document.querySelectorAll('.name')
-console.log(names[0].textContent)
-
-input.addEventListener('keyup', ()=>{
-  keyword = event.target.value
-  console.log(keyword)
-  
-
-  
-  for(let name of names) {
-    // console.log(name.textContent)
-    name.parentNode.classList.remove('hidden')
-    
-    if(!name.textContent.includes(keyword)) {
-      console.log(name.parentNode)
-      name.parentNode.classList.add('hidden')
-    }
-    
-    if(keyword === "") {
-      name.parentNode.classList.remove('hidden')
-    }
-    
+let data = [
+  {
+    name:"jeff",
+    age:15,
+    location:"sf"
+  }, 
+  {
+    name:"emmett",
+    age:69,
+    location:"africa"
+  },
+  {
+    name:"jeff",
+    age:15,
+    location:"sf"
   }
-})
+];
+
+let schema = ['name','age','location'];
+
+const table = document.querySelector('.table')
+
+const tr = document.createElement('tr')
+
+const createHeader = (schema) => {
+  for(header of schema) {
+    const th = document.createElement('th')
+    th.innerText = header
+    tr.append(th)
+  }
+}
+
+createHeader(schema)
+
+table.append(tr)
 
 
 
 
 
-
+console.log(table)
